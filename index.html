@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- viewport: necessario per il corretto adattamento su smartphone -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <!-- NOME DELL'ATTIVITÀ: il titolo della scheda si aggiorna da js/config.js -->
+    <title>Nome Barber Shop</title>
+    <meta name="description" content="Sito vetrina per barber shop. Sostituisci i testi di esempio." />
+    <meta name="theme-color" content="#0b0b0c" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Outfit:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!--
+      PERSONALIZZAZIONE VELOCE
+      Cambia nome, indirizzo, WhatsApp, prezzi, orari e immagini in: js/config.js
+      I commenti qui sotto ti mostrano dove quei dati compaiono nella pagina.
+    -->
+
+    <header class="nav">
+      <div class="container nav-inner">
+        <!-- NOME DELL'ATTIVITÀ + iniziali del logo -->
+        <a class="logo" href="#home">
+          <span class="logo-mark" data-bind="iniziali">NB</span>
+          <span class="logo-text" data-bind="nome">Nome Barber Shop</span>
+        </a>
+        <button class="menu-toggle" type="button" aria-label="Apri menu" aria-expanded="false">
+          ☰
+        </button>
+        <ul class="nav-links">
+          <li><a href="#servizi">Servizi</a></li>
+          <li><a href="#galleria">Galleria</a></li>
+          <li><a href="#orari">Orari</a></li>
+          <li><a href="#contatti">Contatti</a></li>
+          <li><a class="btn btn-gold btn-nav" href="#prenota">Prenota ora</a></li>
+        </ul>
+      </div>
+    </header>
+    <div class="nav-overlay"></div>
+
+    <main>
+      <section class="hero" id="home">
+        <!-- IMMAGINE HERO: campo immagini.hero in js/config.js -->
+        <div class="hero-bg" data-hero-image aria-hidden="true"></div>
+        <div class="container hero-content">
+          <!-- zona / città -->
+          <p class="eyebrow" data-bind="zona">Quartiere · Città</p>
+          <!-- NOME DELL'ATTIVITÀ -->
+          <h1 data-bind="nome">Nome Barber Shop</h1>
+          <p class="hero-lead" data-bind="slogan">
+            Taglio, barba e cura dello stile in un ambiente riservato e professionale.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-gold" href="#prenota">Prenota ora</a>
+            <!-- NUMERO WHATSAPP: whatsappCifre in js/config.js -->
+            <a class="btn btn-outline" data-whatsapp href="#" target="_blank" rel="noopener noreferrer"
+              >Scrivi su WhatsApp</a
+            >
+          </div>
+          <div class="hero-meta">
+            <!-- INDIRIZZO -->
+            <p data-bind="indirizzo">Via Esempio 1, 00000 Città</p>
+            <!-- ORARI (riga breve) -->
+            <p data-bind="orari-hero">Mar–Sab · 09:00–19:00</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="servizi">
+        <div class="container">
+          <div class="section-header">
+            <p class="eyebrow">Listino</p>
+            <h2>Servizi e prezzi</h2>
+            <p>Elenco di esempio: aggiorna nomi e prezzi in js/config.js (sezione servizi).</p>
+          </div>
+          <!-- PREZZI: generati da SITE.servizi -->
+          <div class="services-grid" id="services-grid"></div>
+        </div>
+      </section>
+
+      <section class="section" id="galleria">
+        <div class="container">
+          <div class="section-header">
+            <p class="eyebrow">Lavori</p>
+            <h2>Galleria</h2>
+            <p>Foto di esempio. Sostituiscile con scatti del salone (js/config.js → immagini.galleria).</p>
+          </div>
+          <!-- IMMAGINI GALLERIA -->
+          <div class="gallery-grid" id="gallery-grid"></div>
+        </div>
+      </section>
+
+      <section class="section" id="orari">
+        <div class="container info-grid">
+          <article class="info-card">
+            <p class="eyebrow">Quando</p>
+            <h3>Orari di apertura</h3>
+            <!-- ORARI: SITE.orari -->
+            <ul class="hours-list" id="hours-list"></ul>
+          </article>
+          <article class="info-card" id="contatti">
+            <p class="eyebrow">Dove</p>
+            <h3>Indirizzo</h3>
+            <ul class="address-list">
+              <!-- INDIRIZZO -->
+              <li><span>Sede</span><span data-bind="indirizzo">Via Esempio 1, 00000 Città</span></li>
+              <li><span>Zona</span><span data-bind="riferimento">Zona / fermata da indicare</span></li>
+              <!-- NUMERO visibile (stesso di WhatsApp, in formato leggibile) -->
+              <li><span>Telefono</span><span data-bind="telefono">+39 000 000 0000</span></li>
+            </ul>
+            <!-- MAPPA: SITE.mappaQuery — non inserire indirizzi reali in una demo -->
+            <div class="map-wrap">
+              <iframe id="mappa" title="Mappa dell'attività" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section booking" id="prenota">
+        <div class="container">
+          <div class="section-header">
+            <p class="eyebrow">Appuntamenti</p>
+            <h2>Prenota ora</h2>
+            <p>
+              Modulo di esempio: non invia dati a internet. Per un cliente vero collegalo a WhatsApp o a un servizio prenotazioni.
+            </p>
+          </div>
+          <form class="booking-panel" id="booking-form">
+            <div class="form-grid">
+              <div class="form-field">
+                <label for="name">Nome e cognome</label>
+                <input id="name" name="name" type="text" autocomplete="name" required />
+              </div>
+              <div class="form-field">
+                <label for="phone">Telefono</label>
+                <input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required />
+              </div>
+              <div class="form-field">
+                <label for="service">Servizio</label>
+                <!-- le opzioni arrivano dai PREZZI / servizi in config.js -->
+                <select id="service" name="service" required>
+                  <option value="">Seleziona</option>
+                </select>
+              </div>
+              <div class="form-field">
+                <label for="date">Data</label>
+                <input id="date" name="date" type="date" required />
+              </div>
+              <div class="form-field">
+                <label for="time">Orario</label>
+                <select id="time" name="time" required>
+                  <option value="">Seleziona</option>
+                </select>
+              </div>
+              <div class="form-field full">
+                <label for="notes">Note (facoltative)</label>
+                <textarea id="notes" name="notes" placeholder="Richieste sullo stile..."></textarea>
+              </div>
+            </div>
+            <button class="btn btn-gold btn-submit" type="submit">Invia richiesta</button>
+            <p class="form-message" id="form-message" role="status"></p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <!-- NOME + INDIRIZZO in calce -->
+        <p>
+          <span data-bind="nome">Nome Barber Shop</span>
+          ·
+          <span data-bind="indirizzo">Via Esempio 1, 00000 Città</span>
+          · Contenuti di esempio da sostituire
+        </p>
+      </div>
+    </footer>
+
+    <!-- PULSANTE WHATSAPP FISSO (stesso numero di config.js) -->
+    <a
+      class="whatsapp-float"
+      data-whatsapp
+      href="#"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Apri WhatsApp"
+    >
+      <svg viewBox="0 0 32 32" aria-hidden="true">
+        <path
+          fill="currentColor"
+          d="M19.1 17.4c-.3-.1-1.7-.8-1.9-.9s-.4-.1-.6.1-.7.9-.9 1.1-.3.2-.6.1a7.7 7.7 0 0 1-2.3-1.4 8.5 8.5 0 0 1-1.6-2c-.2-.3 0-.4.1-.6l.5-.6c.1-.2.2-.3.3-.5s0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.6-.5h-.5c-.2 0-.5.1-.7.3s-1 1-1 2.4 1 2.8 1.2 3 .9 2.1 3.4 3.5c2.4 1.1 2.4.8 2.8.7s1.4-.6 1.6-1.1.2-1 .1-1.1-.3-.2-.6-.3zM16 5.3A10.6 10.6 0 0 0 5.9 21.3L5 27l5.8-.9A10.6 10.6 0 1 0 16 5.3zm0 19.3a8.8 8.8 0 0 1-4.5-1.2l-.3-.2-3.5.5.5-3.4-.2-.3a8.8 8.8 0 1 1 8 4.6z"
+        />
+      </svg>
+      <span>WhatsApp</span>
+    </a>
+
+    <div class="lightbox" id="lightbox" role="dialog" aria-label="Immagine ingrandita">
+      <button class="lightbox-close" type="button" aria-label="Chiudi">✕</button>
+      <img id="lightbox-image" alt="" />
+    </div>
+
+    <!-- Prima config (dati), poi main (funzioni). Non invertire l'ordine. -->
+    <script src="js/config.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
